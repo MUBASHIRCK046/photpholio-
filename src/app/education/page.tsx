@@ -12,7 +12,7 @@ import Footer from "@/components/portfolio/Footer";
 export const metadata: Metadata = {
   title: "Page 02 · Education & Accreditations | Mubashir CK",
   description:
-    "Academic credentials from KMCT College of Engineering / University of Calicut, certifications in Rapid App Development, Video Editing, AI, and Cybersecurity.",
+    "Academic credentials from KMCT College of Engineering (KTU) and ELIMS (University of Calicut), certifications in Rapid App Development, Video Editing, AI, and Cybersecurity.",
 };
 
 export default function EducationPage() {
