@@ -24,9 +24,13 @@ export default function MouseGlow() {
     };
 
     const loop = () => {
-      cx += (tx - cx) * 0.12;
-      cy += (ty - cy) * 0.12;
-      el.style.transform = `translate3d(${cx - 300}px, ${cy - 300}px, 0)`;
+      const dx = tx - cx;
+      const dy = ty - cy;
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        cx += dx * 0.14;
+        cy += dy * 0.14;
+        el.style.transform = `translate3d(${cx - 300}px, ${cy - 300}px, 0)`;
+      }
       raf = requestAnimationFrame(loop);
     };
 
@@ -43,10 +47,11 @@ export default function MouseGlow() {
     <div
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[5] h-[600px] w-[600px] rounded-full opacity-40 mix-blend-screen"
+      className="pointer-events-none fixed left-0 top-0 z-[5] h-[600px] w-[600px] rounded-full opacity-50 mix-blend-screen transition-opacity duration-300 will-change-transform"
       style={{
         background:
-          "radial-gradient(circle, rgba(6,182,212,0.07) 0%, rgba(124,58,237,0.04) 35%, transparent 70%)",
+          "radial-gradient(circle, rgba(245,208,137,0.14) 0%, rgba(244,63,94,0.07) 35%, transparent 70%)",
+        transform: "translate3d(-1000px, -1000px, 0)",
       }}
     />
   );

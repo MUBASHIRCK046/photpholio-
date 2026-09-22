@@ -7,6 +7,7 @@ import {
   User,
   Briefcase,
   Cpu,
+  FolderKanban,
   GraduationCap,
   Mail,
   Menu,
@@ -23,6 +24,7 @@ const iconMap: Record<string, typeof Home> = {
   user: User,
   briefcase: Briefcase,
   cpu: Cpu,
+  folder: FolderKanban,
   graduation: GraduationCap,
   mail: Mail,
 };

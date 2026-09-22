@@ -133,7 +133,7 @@ export default function AudioToggle({ className }: { className?: string }) {
         <VolumeX className="h-4 w-4" />
       )}
       {on && (
-        <span className="absolute inset-0 -z-10 rounded-full bg-cyan-400/20 animate-pulse" />
+        <span className="absolute inset-0 -z-10 rounded-full bg-amber-400/25 animate-pulse" />
       )}
     </button>
   );

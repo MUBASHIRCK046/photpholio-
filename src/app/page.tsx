@@ -1,5 +1,6 @@
 import LiquidBackground from "@/components/portfolio/LiquidBackground";
 import SmoothScrollProvider from "@/components/portfolio/SmoothScrollProvider";
+import SoundEffectsProvider from "@/components/portfolio/SoundEffectsProvider";
 import MouseGlow from "@/components/portfolio/MouseGlow";
 import CausticFilters from "@/components/portfolio/CausticFilters";
 import HUDNavigation from "@/components/portfolio/HUDNavigation";
@@ -14,8 +15,9 @@ import Footer from "@/components/portfolio/Footer";
 export default function Home() {
   return (
     <SmoothScrollProvider>
-      {/* fixed full-viewport fluid background engine */}
-      <LiquidBackground />
+      <SoundEffectsProvider>
+        {/* fixed full-viewport fluid background engine */}
+        <LiquidBackground />
       {/* global SVG caustic filters + cursor follow-light */}
       <CausticFilters />
       <MouseGlow />
@@ -33,6 +35,7 @@ export default function Home() {
         <ContactSection />
         <Footer />
       </main>
+      </SoundEffectsProvider>
     </SmoothScrollProvider>
   );
 }

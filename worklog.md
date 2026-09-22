@@ -58,3 +58,20 @@ Stage Summary:
 - Modular components: `<LiquidBackground/>`, `<GlassCard/>`, `<InfiniteMarquee/>`, `<LiquidImage/>`-family (LiquidPortal/FloatingPrism/DeepFocusLens), `<ParallaxContainer/>`.
 - Dev server running on port 3000, ready to preview.
 
+---
+Task ID: 2
+Agent: orchestrator (main)
+Task: Add dedicated Page 03 for Career Experience & Applied Systems, preserving Page 02 Education and enabling cross-page navigation.
+
+Work Log:
+- Kept Education as dedicated Page 02 (`/education`) with "Page 02 · Academic Pedigree & Accreditations" badge.
+- Built dedicated Page 03 route (`/experience` and alias `/work`):
+  - Created `src/app/experience/page.tsx` with dynamic category filtering across AI/Vision, Blockchain, FinTech, and Civic Tech builds.
+  - Created `src/app/experience/layout.tsx` providing rich SEO metadata for Page 03.
+  - Created `src/app/work/page.tsx` alias route.
+  - Features interactive career metrics bar, full `ExperienceSection` timeline with PHOTO_2 `FloatingPrism`, and deep-dive architecture breakdown for Medshield AI, VisionAttend AI, EstateLedger, and SafeCity.
+- Added bidirectional cross-page navigation ribbons between Page 01 (Home), Page 02 (Education), and Page 03 (Experience & Systems).
+- Updated `ExperienceSection.tsx` with pulsing cyan `Page 03 · Career Milestones & Engineered Systems` status pill and "Dedicated Page 03 View" link.
+- Updated `HeroSection.tsx` with direct quick jump triggers for both `Credentials · Page 02` and `Experience · Page 03`.
+
+

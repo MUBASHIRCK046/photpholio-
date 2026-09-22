@@ -31,19 +31,19 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex w-fit items-center gap-2 rounded-full glass-pill px-3 py-1.5 text-xs font-medium text-pearl/75"
+            className="inline-flex w-fit items-center gap-2 rounded-full glass-pill px-3.5 py-1.5 text-xs font-semibold text-pearl/85 border border-amber-400/25 bg-amber-950/20"
           >
-            <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
+            <Sparkles className="h-3.5 w-3.5 text-amber-300" />
             {profile.title}
           </motion.div>
 
-          <h1 className="fluid-type-hero font-display font-bold leading-[0.95] tracking-tight text-pearl">
-            <KineticText text={profile.name.split(" ")[0]} as="span" className="block text-pearl" />
+          <h1 className="fluid-type-hero font-display font-bold leading-[1.05] tracking-tight text-pearl whitespace-nowrap">
+            <KineticText text={profile.name.split(" ")[0]} as="span" className="inline-block text-pearl" />{" "}
             <KineticText
               text={profile.name.split(" ").slice(1).join(" ")}
               as="span"
               delay={0.15}
-              className="block text-gradient-liquid"
+              className="inline-block text-gradient-liquid"
             />
           </h1>
 
@@ -67,16 +67,16 @@ export default function HeroSection() {
               as="button"
               strength={0.3}
               onClick={() => scrollTo("#contact")}
-              className="group relative overflow-hidden rounded-full px-6 py-3 text-sm font-semibold text-pearl"
+              className="group relative overflow-hidden rounded-full px-6 py-3 text-sm font-semibold text-pearl shadow-lg"
             >
-              {/* liquid CTA with bubbling internal glow */}
+              {/* Warm luxury CTA with golden champagne and rose glow */}
               <span
                 className="absolute inset-0 -z-10 rounded-full"
                 style={{
                   background:
-                    "linear-gradient(120deg, rgba(6,182,212,0.5), rgba(124,58,237,0.5))",
+                    "linear-gradient(120deg, rgba(245,208,137,0.55), rgba(244,63,94,0.5))",
                   boxShadow:
-                    "0 10px 30px -8px rgba(124,58,237,0.5), inset 0 1px 1px 0 rgba(255,255,255,0.4)",
+                    "0 10px 30px -8px rgba(244,63,94,0.4), inset 0 1px 1px 0 rgba(255,255,255,0.45)",
                 }}
               />
               <span
@@ -93,10 +93,19 @@ export default function HeroSection() {
             <MagneticButton
               as="button"
               strength={0.3}
-              onClick={() => scrollTo("#work")}
-              className="rounded-full glass-pill px-6 py-3 text-sm font-semibold text-pearl/85 hover:text-pearl"
+              onClick={() => scrollTo("#about")}
+              className="rounded-full glass-pill px-5 py-3 text-xs sm:text-sm font-semibold text-amber-300 hover:text-amber-200 border border-amber-400/30"
             >
-              View Experience
+              Narrative · Page 02
+            </MagneticButton>
+
+            <MagneticButton
+              as="button"
+              strength={0.3}
+              onClick={() => scrollTo("#work")}
+              className="rounded-full glass-pill px-5 py-3 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-cyan-200 border border-cyan-400/30"
+            >
+              Milestones · Page 03
             </MagneticButton>
 
             <MagneticButton
@@ -128,17 +137,22 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
-            className="grid grid-cols-2 gap-3 pt-4 sm:grid-cols-4"
+            className="grid grid-cols-3 gap-2.5 pt-4 sm:gap-3"
           >
             {profile.stats.map((s) => (
-              <div key={s.label} className="rounded-2xl glass p-3">
-                <div className="font-display text-2xl font-bold text-gradient-aurora">
+              <motion.div
+                key={s.label}
+                whileHover={{ y: -4, scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                className="hover-card-lift group relative overflow-hidden rounded-2xl glass p-3.5 border border-white/10 hover:border-amber-300/40 hover:shadow-[0_0_20px_rgba(245,208,137,0.2)] transition-all cursor-default"
+              >
+                <div className="font-display text-2xl font-bold text-gradient-aurora group-hover:scale-105 transition-transform origin-left">
                   <CountUp to={s.value} suffix={s.suffix} />
                 </div>
                 <div className="mt-0.5 text-[11px] uppercase tracking-wider text-pearl/75 text-shadow-soft">
                   {s.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
 
@@ -153,13 +167,29 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Photo column */}
+        {/* Photo column with interactive floating badges */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85, filter: "blur(14px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="order-1 mx-auto w-full max-w-[min(86vw,460px)] lg:order-2"
+          className="order-1 relative mx-auto w-full max-w-[min(86vw,460px)] lg:order-2"
         >
+          {/* Floating badge top-left */}
+          <div className="pointer-events-none absolute -left-3 -top-2 z-20 hidden sm:block animate-float-slow">
+            <div className="glass-pill flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold text-amber-200 border border-amber-300/40 bg-black/60 shadow-xl shadow-black/50">
+              <span className="h-2 w-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f5d089]" />
+              AI &amp; Systems Architecture
+            </div>
+          </div>
+
+          {/* Floating badge top-right */}
+          <div className="pointer-events-none absolute -right-3 -top-2 z-20 hidden sm:block animate-float-reverse">
+            <div className="glass-pill flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold text-rose-300 border border-rose-400/40 bg-black/60 shadow-xl shadow-black/50">
+              <span className="h-2 w-2 rounded-full bg-rose-400 shadow-[0_0_8px_#f43f5e]" />
+              Cybersecurity &amp; Blockchain
+            </div>
+          </div>
+
           <LiquidPortal src={PHOTO_1} alt="Portrait of Mubashir CK" />
         </motion.div>
       </div>
