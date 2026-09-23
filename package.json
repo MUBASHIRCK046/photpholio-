@@ -50,6 +50,7 @@
     "@swc/helpers": "^0.5.23",
     "@tanstack/react-query": "^5.82.0",
     "@tanstack/react-table": "^8.21.3",
+    "@vercel/speed-insights": "^2.0.0",
     "baseline-browser-mapping": "^2.11.25",
     "browserslist": "^4.29.0",
     "caniuse-lite": "^1.0.30001810",
